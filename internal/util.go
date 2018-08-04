@@ -30,7 +30,7 @@ func loadJSONFile(jsonPath string, val interface{}) error {
 	}
 
 	ext :=path.Ext(jsonPath)
-	if  ext == "yaml" || ext == "yml" {
+	if  ext == ".yaml" || ext == ".yml" {
 		return yaml.Unmarshal(bs, val)
 	}
 
