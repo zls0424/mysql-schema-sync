@@ -3,13 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/hidu/mysql-schema-sync/internal"
+	"github.com/zls0424/mysql-schema-sync/internal"
 	"log"
 	"os"
 	"strings"
 )
 
-var configPath = flag.String("conf", "./config.json", "json config file path")
+var configPath = flag.String("conf", "./config.json", "config file path, json or yaml")
 var sync = flag.Bool("sync", false, "sync shcema change to dest db")
 var drop = flag.Bool("drop", false, "drop fields,index,foreign key")
 

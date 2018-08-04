@@ -10,13 +10,15 @@ import (
 	"reflect"
 	"regexp"
 	"strings"
+	"path"
+	"gopkg.in/yaml.v2"
 )
 
 // Version version
 const Version = "0.3"
 
 // AppURL site
-const AppURL = "https://github.com/hidu/mysql-schema-sync/"
+const AppURL = "https://github.com/zls0424/mysql-schema-sync/"
 
 const timeFormatStd string = "2006-01-02 15:04:05"
 
@@ -26,6 +28,12 @@ func loadJSONFile(jsonPath string, val interface{}) error {
 	if err != nil {
 		return err
 	}
+
+	ext :=path.Ext(jsonPath)
+	if  ext == "yaml" || ext == "yml" {
+		return yaml.Unmarshal(bs, val)
+	}
+
 	lines := strings.Split(string(bs), "\n")
 	var bf bytes.Buffer
 	for _, line := range lines {

@@ -8,11 +8,11 @@ import (
 
 // Config  config struct
 type Config struct {
-	SourceDSN   string                       `json:"source"`
-	DestDSN     string                       `json:"dest"`
-	AlterIgnore map[string]*AlterIgnoreTable `json:"alter_ignore"`
-	Tables      []string                     `json:"tables"`
-	Email       *EmailStruct                 `json:"email"`
+	SourceDSN   string                       `json:"source" yaml:"source"`
+	DestDSN     string                       `json:"dest" yaml:"dest"`
+	AlterIgnore map[string]*AlterIgnoreTable `json:"alter_ignore" yaml:"alter_ignore"`
+	Tables      []string                     `json:"tables" yaml:"tables"`
+	Email       *EmailStruct                 `json:"email" yaml:"email"`
 	ConfigPath  string
 	Sync        bool
 	Drop        bool
@@ -25,9 +25,9 @@ func (cfg *Config) String() string {
 
 // AlterIgnoreTable table's ignore info
 type AlterIgnoreTable struct {
-	Column     []string `json:"column"`
-	Index      []string `json:"index"`
-	ForeignKey []string `json:"foreign"` //外键
+	Column     []string `json:"column" yaml:"column"`
+	Index      []string `json:"index" yaml:"index"`
+	ForeignKey []string `json:"foreign" yaml:"foreign"` //外键
 }
 
 // IsIgnoreField isIgnore
